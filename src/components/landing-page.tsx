@@ -8,25 +8,26 @@ const LandingPage = (): JSX.Element => {
 			css={[
 				tw`flex flex-col justify-center items-center`,
 				tw`w-screen h-screen`,
+				tw`font-family['Press Start 2P']`,
 			]}
 		>
 			<h1
 				css={[
 					tw`bg-purple-600 `,
 					tw`flex items-center justify-center`,
-					tw`text-6xl h-32`,
+					tw`text-4xl h-32`,
 					tw`m-3 px-12`,
 				]}
 			>
 				Welcome to My Cool 3D Website!
 			</h1>
 
-			<p tw="my-16">Oh, yeah.</p>
+			<p tw="my-16">Got some neat stuff to check out!</p>
 
 			<div
 				css={[tw`flex flex-col justify-center items-center`, tw`bg-green-500`]}
 			>
-				<Link href="/scene">
+				<Link href="/projects">
 					<a tw="block p-10 hover:cursor-pointer">
 						<h2 tw="text-2xl">Check it out!</h2>
 					</a>
