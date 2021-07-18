@@ -1,4 +1,7 @@
-module.exports = {
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const withTM = require(`next-transpile-modules`)([`three/examples/jsm`]);
+
+module.exports = withTM({
 	root: true,
 	parser: `@typescript-eslint/parser`,
 	plugins: [`@typescript-eslint`],
@@ -15,4 +18,4 @@ module.exports = {
 		return config;
 	},
 	optimizeFonts: false,
-};
+});

@@ -26,7 +26,7 @@ const Projects = (): JSX.Element => {
 						`,
 					]}
 				>
-					<h1 tw="flex w-full p-2 min-height[20px] font-family['Press Start 2P'] text-white items-center justify-center bg-purple-600">
+					<h1 tw="flex w-full p-2 min-height[20px] font-family['Press Start 2P'] text-sm text-white items-center justify-center bg-purple-600">
 						Sphere
 					</h1>
 					<ThreeJsCanvas />

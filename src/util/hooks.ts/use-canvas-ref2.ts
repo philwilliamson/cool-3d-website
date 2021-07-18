@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 type ThreeJsCanvasRef = React.LegacyRef<HTMLDivElement>;
@@ -8,22 +8,8 @@ interface SceneParameters {
 	object?: string;
 }
 
-const orbitControlsDynamicImport = async (
-	camera,
-	renderer,
-	setOrbitControls
-) => {
-	const { OrbitControls } = await import(
-		`three/examples/jsm/controls/OrbitControls`
-	);
-	const orbitControls = new OrbitControls(camera, renderer.domElement);
-	setOrbitControls(orbitControls);
-};
-
 const useCanvasRef2 = ({ object }: SceneParameters): ThreeJsCanvasRef => {
 	const canvasRef = useRef(null);
-
-	const [orbitControls, setOrbitControls] = useState<OrbitControls>();
 
 	useEffect(() => {
 		const canvas: Element = canvasRef.current;
