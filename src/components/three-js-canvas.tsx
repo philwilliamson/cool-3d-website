@@ -1,28 +1,11 @@
 import tw from "twin.macro";
 
-import useCanvas from "../util/hooks.ts/use-canvas";
+import useCanvasRef from "../util/hooks.ts/use-canvas-ref";
 
-const ThreeJsCanvas = ({ headline }: { headline: string }): JSX.Element => {
-	const canvasRef = useCanvas();
+const ThreeJsCanvas = (): JSX.Element => {
+	const canvasRef = useCanvasRef({});
 
-	return (
-		<div
-			css={[
-				tw`flex flex-col items-center`,
-				tw`h-full`,
-				tw`font-family['Press Start 2P']`,
-			]}
-		>
-			<h1
-				css={[
-					tw`text-3xl bg-purple-900  text-blue-100 flex justify-center items-center h-20 w-full`,
-				]}
-			>
-				{headline}
-			</h1>
-			<div ref={canvasRef} css={[tw`w-full h-full`]}></div>
-		</div>
-	);
+	return <div ref={canvasRef} css={[tw`w-full h-full`]}></div>;
 };
 
 export default ThreeJsCanvas;
