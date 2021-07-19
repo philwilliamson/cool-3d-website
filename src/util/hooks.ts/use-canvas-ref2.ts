@@ -7,13 +7,17 @@ type ThreeJsCanvasRef = React.LegacyRef<HTMLDivElement>;
 interface SceneParameters {
 	object?: string;
 }
-
-function addStars(scene) {
+/**
+ * @param  {{subject:any}} scene
+ * ! experimental hook
+ * TODO: make this better
+ */
+function addStars(scene: THREE.Scene) {
 	const geometry = new THREE.SphereGeometry(0.25, 24, 24);
 	const material = new THREE.MeshBasicMaterial({ color: `#ffffff` });
 	const star = new THREE.Mesh(geometry, material);
 
-	const [x, y, z] = Array.from({ length: 3 }).map(() =>
+	const [x, y, z] = Array.from<number>({ length: 3 }).map(() =>
 		THREE.MathUtils.randFloatSpread(100)
 	);
 

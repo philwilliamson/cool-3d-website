@@ -1,11 +1,11 @@
 import tw from "twin.macro";
 
-import ThreeJsCanvas from "../../components/three-js-canvas";
+import SphereScene from "../../components/three-js-canvas";
 
 const SpherePage = (): JSX.Element => {
 	return (
 		<div css={[tw`h-screen`]}>
-			<ThreeJsCanvas />
+			<SphereScene />
 		</div>
 	);
 };
