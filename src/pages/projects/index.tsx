@@ -16,7 +16,7 @@ const Projects = (): JSX.Element => {
 			<Card title="Sphere" link="/projects/sphere">
 				<SphereScene />
 			</Card>
-			<Card title="Elaborate Scene Page" link="/projects/elaborate-scene">
+			<Card title="ElaborateScenePage" link="/projects/elaborate-scene">
 				<ElaborateScene />
 			</Card>
 		</div>
