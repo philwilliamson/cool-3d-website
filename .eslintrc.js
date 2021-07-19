@@ -16,5 +16,6 @@ module.exports = {
 		"unicorn/prefer-module": `off`,
 		"unicorn/prevent-abbreviations": `off`,
 		"unicorn/number-literal-case": `off`,
+		"unicorn/no-useless-undefined": `off`,
 	},
 };

@@ -12,7 +12,7 @@ interface SceneParameters {
  * ! experimental hook
  * TODO: make this better
  */
-function addStars(scene: THREE.Scene) {
+const addStars = (scene: THREE.Scene) => {
 	const geometry = new THREE.SphereGeometry(0.25, 24, 24);
 	const material = new THREE.MeshBasicMaterial({ color: `#ffffff` });
 	const star = new THREE.Mesh(geometry, material);
@@ -23,7 +23,9 @@ function addStars(scene: THREE.Scene) {
 
 	star.position.set(x, y, z);
 	scene.add(star);
-}
+};
+
+const onLoadHandler = () => {};
 
 const useCanvasRef2 = ({ object }: SceneParameters): ThreeJsCanvasRef => {
 	const canvasRef = useRef(null);

@@ -1,5 +1,4 @@
 import tw from "twin.macro";
-import Link from "next/link";
 
 import Card from "../../components/card";
 import SphereScene from "../../components/three-js-canvas";
@@ -14,20 +13,12 @@ const Projects = (): JSX.Element => {
 				tw`bg-blue-300`,
 			]}
 		>
-			<Link href={`/projects/sphere`}>
-				<a>
-					<Card title="Sphere">
-						<SphereScene />
-					</Card>
-				</a>
-			</Link>
-			<Link href={`/projects/elaborate-scene`}>
-				<a>
-					<Card title="ElaborateScenePage">
-						<ElaborateScene />
-					</Card>
-				</a>
-			</Link>
+			<Card title="Sphere" link="/projects/sphere">
+				<SphereScene />
+			</Card>
+			<Card title="ElaborateScenePage" link="/projects/elaborate-scene">
+				<ElaborateScene />
+			</Card>
 		</div>
 	);
 };
