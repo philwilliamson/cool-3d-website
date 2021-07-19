@@ -20,7 +20,13 @@ const Card = ({ children, title }: CardInterface): JSX.Element => {
 			]}
 		>
 			{title && (
-				<h1 tw="flex w-full p-2 min-height[20px] font-family['Press Start 2P'] text-sm text-white items-center justify-center bg-purple-600">
+				<h1
+					css={[
+						tw`flex w-full p-2 height[50px]`,
+						tw`font-family['Press Start 2P'] text-xs text-white`,
+						tw`items-center justify-center bg-purple-600`,
+					]}
+				>
 					{title}
 				</h1>
 			)}

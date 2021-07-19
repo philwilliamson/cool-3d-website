@@ -90,7 +90,6 @@ const useCanvasRef2 = ({ object }: SceneParameters): ThreeJsCanvasRef => {
 
 		const renderer = new THREE.WebGLRenderer();
 
-		// orbitControlsDynamicImport(camera, renderer, setOrbitControls);
 		const orbitControls = new OrbitControls(camera, renderer.domElement);
 
 		renderer.setPixelRatio(window.devicePixelRatio);

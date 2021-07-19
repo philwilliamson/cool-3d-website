@@ -1,4 +1,4 @@
-import tw, { css } from "twin.macro";
+import tw from "twin.macro";
 import Link from "next/link";
 
 import Card from "../../components/card";
