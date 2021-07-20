@@ -1,6 +1,6 @@
 import tw from "twin.macro";
 
-import SphereScene from "../../components/three-js-canvas";
+import SphereScene from "../../components/sphere-scene";
 
 const SpherePage = (): JSX.Element => {
 	return (

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import GlobalStyles from "../components/global-styles";
+import GlobalStyles from "../components/style-components/global-styles";
 import type { AppProps } from "next/app";
 
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => (

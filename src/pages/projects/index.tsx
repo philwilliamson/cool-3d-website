@@ -1,8 +1,12 @@
 import tw from "twin.macro";
 
 import Card from "../../components/card";
-import SphereScene from "../../components/three-js-canvas";
+// import SphereScene from "../../components/sphere-scene";
+// import ElaborateScene from "../../components/elaborate-scene";
+import SphereScene from "../../components/sphere-scene";
 import ElaborateScene from "../../components/elaborate-scene";
+
+import SandboxPage from "./sandbox-page";
 
 const Projects = (): JSX.Element => {
 	return (
@@ -13,14 +17,14 @@ const Projects = (): JSX.Element => {
 				tw`bg-blue-300`,
 			]}
 		>
-			<Card title="Sphere" link="/projects/sphere">
+			<Card title="Sphere" link="/projects/sphere-page">
 				<SphereScene />
 			</Card>
-			<Card title="Elaborate Scene" link="/projects/elaborate-scene">
+			<Card title="Elaborate Scene" link="/projects/elaborate-scene-page">
 				<ElaborateScene />
 			</Card>
-			<Card title="R3f Canvas" link="/projects/elaborate-scene">
-				<h1>hello</h1>
+			<Card title="WIP" link="/projects/sandbox-page">
+				<SandboxPage />
 			</Card>
 		</div>
 	);
