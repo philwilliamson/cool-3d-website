@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@react-three/drei": "^7.2.1",
+    "@react-three/fiber": "^7.0.5",
     "@tailwindcss/typography": "^0.4.1",
     "@types/three": "^0.130.0",
     "next": "11.0.1",
