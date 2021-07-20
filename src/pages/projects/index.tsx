@@ -19,6 +19,9 @@ const Projects = (): JSX.Element => {
 			<Card title="Elaborate Scene" link="/projects/elaborate-scene">
 				<ElaborateScene />
 			</Card>
+			<Card title="R3f Canvas" link="/projects/elaborate-scene">
+				<h1>hello</h1>
+			</Card>
 		</div>
 	);
 };
