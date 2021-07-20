@@ -1,6 +1,6 @@
 import tw from "twin.macro";
 
-import useCanvasRef from "../util/hooks.ts/use-canvas-ref";
+import useCanvasRef from "../hooks/use-canvas-ref";
 
 const SphereScene = (): JSX.Element => {
 	const canvasRef = useCanvasRef({});

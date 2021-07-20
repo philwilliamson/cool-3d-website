@@ -5,7 +5,6 @@ module.exports = {
 		fontFamily: {
 			display: [`Press Start 2P`],
 			sticker: [`Antipol`],
-			phone: [`Roboto`, `sans-serif`],
 		},
 		extend: {},
 	},

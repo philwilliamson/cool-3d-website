@@ -1,6 +1,6 @@
 import tw from "twin.macro";
 
-import useCanvasRef2 from "../util/hooks.ts/use-canvas-ref2";
+import useCanvasRef2 from "../hooks/use-canvas-ref2";
 
 const ElaborateScene = (): JSX.Element => {
 	const canvasRef = useCanvasRef2({});
