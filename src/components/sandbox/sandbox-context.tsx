@@ -1,11 +1,11 @@
 // here we utilize useContext with useState to allow a
 import React, { useContext, useReducer } from "react";
 
-const SandboxContext = React.createContext(false);
+const SandboxContext = React.createContext(undefined);
 const SandboxUpdateContext = React.createContext(undefined);
 
-// functions for accessing the respective contexts
-export const useSandboxContext = (): boolean => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const useSandboxContext = (): any => {
 	return useContext(SandboxContext);
 };
 
@@ -23,13 +23,20 @@ interface SandboxInterface {
 	contextInterface?: ContextInterface;
 }
 
-const sandboxHandler = () => {
-	return undefined;
+const sandboxHandler = (sandboxContext, action): ContextInterface => {
+	switch (action.type) {
+		case `red`:
+			return { color: `red` };
+		case `green`:
+			return { color: `green` };
+		case `blue`:
+			return { color: `blue` };
+	}
 };
 
 const SandboxContextProvider = ({
 	children,
-	contextInterface = { color: `white` },
+	contextInterface = { color: `red` },
 }: SandboxInterface): JSX.Element => {
 	const [sandboxContext, dispatchSandboxContext] = useReducer(
 		sandboxHandler,

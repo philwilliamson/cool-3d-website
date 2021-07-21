@@ -22,7 +22,7 @@ const LandingPage = (): JSX.Element => {
 				Welcome to My Cool 3D Website!
 			</h1>
 
-			<p tw="my-16">You like vertices?</p>
+			<p tw="my-16 text-white">You like vertices?</p>
 
 			<div
 				css={[tw`flex flex-col justify-center items-center`, tw`bg-green-500`]}

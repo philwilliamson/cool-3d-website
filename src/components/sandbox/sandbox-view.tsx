@@ -1,3 +1,4 @@
+import tw from "twin.macro";
 import { Canvas, useFrame } from "@react-three/fiber";
 import React, { useRef, useState } from "react";
 import { Mesh } from "three";
@@ -28,20 +29,19 @@ function Box({ color, position }) {
 	);
 }
 
-const View = (): JSX.Element => {
-	const sandboxContext = useSandboxContext();
+const SandboxView = (): JSX.Element => {
+	const { color: boxColor } = useSandboxContext();
 
 	return (
-		// <div>
-		<Canvas>
-			<Stars />
-			<OrbitControls />
-			<pointLight position={[10, 10, 10]} />
-			<Box color="green" position={[-5, 0, 0]} />
-			<Box color="purple" position={[5, 0, 0]} />
-		</Canvas>
-		// </div>
+		<div css={[tw`h-screen col-start-2 col-end-7`]}>
+			<Canvas>
+				<Stars />
+				<OrbitControls />
+				<pointLight position={[10, 10, 10]} />
+				<Box color={boxColor} position={[0, 0, 0]} />
+			</Canvas>
+		</div>
 	);
 };
 
-export default View;
+export default SandboxView;
