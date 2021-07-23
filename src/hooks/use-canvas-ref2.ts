@@ -61,7 +61,7 @@ const useCanvasRef2 = ({ object }: SceneParameters): ThreeJsCanvasRef => {
 		const spaceTexture = new THREE.TextureLoader().load(`/space.jpg`);
 		scene.background = spaceTexture;
 
-		const philTexture = new THREE.TextureLoader().load(`/headshot.jpg`);
+		const philTexture = new THREE.TextureLoader().load(`/arnold.jpg`);
 
 		const phil = new THREE.Mesh(
 			new THREE.BoxGeometry(3, 3, 3),

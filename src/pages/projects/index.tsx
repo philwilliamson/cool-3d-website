@@ -6,7 +6,8 @@ import Card from "../../components/card";
 import SphereScene from "../../components/sphere-scene";
 import ElaborateScene from "../../components/elaborate-scene";
 
-import SandboxPage from "./sandbox-page";
+import SandboxView from "../../components/sandbox/sandbox-view";
+import SandboxContextProvider from "../../components/sandbox/sandbox-context";
 
 const Projects = (): JSX.Element => {
 	return (
@@ -23,8 +24,10 @@ const Projects = (): JSX.Element => {
 			<Card title="Elaborate Scene" link="/projects/elaborate-scene-page">
 				<ElaborateScene />
 			</Card>
-			<Card title="WIP" link="/projects/sandbox-page">
-				<SandboxPage />
+			<Card title="WIP" bgColor={`black`} link="/projects/sandbox-page">
+				<SandboxContextProvider>
+					<SandboxView />
+				</SandboxContextProvider>
 			</Card>
 		</div>
 	);

@@ -5,9 +5,15 @@ interface CardInterface {
 	children: JSX.Element;
 	title?: string;
 	link?: string;
+	bgColor?: string;
 }
 
-const Card = ({ children, title, link }: CardInterface): JSX.Element => {
+const Card = ({
+	children,
+	title,
+	link,
+	bgColor,
+}: CardInterface): JSX.Element => {
 	return (
 		<Link href={`${link || `javascript:void(0);`}`}>
 			<div
@@ -16,6 +22,7 @@ const Card = ({ children, title, link }: CardInterface): JSX.Element => {
 					tw`flex flex-col items-center justify-center`,
 					tw`cursor-pointer`,
 					tw`overflow-hidden `,
+					bgColor && tw`background[bgColor]`,
 					css`
 						border-radius: 30px;
 						border-collapse: separate;

@@ -33,7 +33,7 @@ const SandboxView = (): JSX.Element => {
 	const { color: boxColor } = useSandboxContext();
 
 	return (
-		<div css={[tw`h-screen col-start-2 col-end-7`]}>
+		<div css={[tw`h-full bg-black col-start-2 col-end-7`]}>
 			<Canvas>
 				<Stars />
 				<OrbitControls />
