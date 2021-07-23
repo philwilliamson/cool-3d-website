@@ -11,14 +11,15 @@ const SandboxControl = (): JSX.Element => {
 	return (
 		<div
 			css={[
-				tw`flex justify-center items-center `,
+				tw`flex flex-col justify-center items-center `,
 				tw`col-start-1 col-end-2 h-screen`,
 				tw`bg-gray-800`,
 			]}
 		>
+			<p tw="text-white">Pick a Color</p>
 			<ColorPicker
-				width={456}
-				height={228}
+				width={250}
+				height={100}
 				color={sandboxContext}
 				onChange={setSandboxContext}
 				hideHSV
