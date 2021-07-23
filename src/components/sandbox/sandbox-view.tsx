@@ -30,7 +30,7 @@ function Box({ color, position }) {
 }
 
 const SandboxView = (): JSX.Element => {
-	const { color: boxColor } = useSandboxContext();
+	const { hex: boxColor } = useSandboxContext();
 
 	return (
 		<div css={[tw`h-full bg-black col-start-2 col-end-7`]}>
