@@ -1,6 +1,5 @@
 // here we utilize useContext with useState to allow a
 import React, { useContext, useReducer, useState } from "react";
-import { useColor } from "react-color-palette";
 
 const SandboxContext = React.createContext(undefined);
 const SandboxUpdateContext = React.createContext(undefined);
@@ -54,8 +53,7 @@ const SandboxContextProvider = ({
 	// 	sandboxHandler,
 	// 	contextInterface
 	// );
-	// const [sandboxContext, dispatchSandboxContext] = useState(contextInterface);
-	const [sandboxContext, setSandboxContext] = useColor(`hex`, `#ffffff`);
+	const [sandboxContext, setSandboxContext] = useState(contextInterface);
 	return (
 		<SandboxContext.Provider value={sandboxContext}>
 			{/* <SandboxUpdateContext.Provider value={dispatchSandboxContext}> */}
