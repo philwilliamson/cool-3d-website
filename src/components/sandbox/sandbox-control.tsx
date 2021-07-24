@@ -1,4 +1,6 @@
 import tw from "twin.macro";
+import { SketchPicker } from "react-color";
+
 import { useSandboxContext, useSandboxUpdateContext } from "./sandbox-context";
 
 const SandboxControl = (): JSX.Element => {
@@ -14,6 +16,13 @@ const SandboxControl = (): JSX.Element => {
 			]}
 		>
 			<p tw="text-white">Pick a Color</p>
+			<SketchPicker
+				color={sandboxContext}
+				onChange={(color, event) => {
+					// event.preventDefault();
+					setSandboxContext(color);
+				}}
+			/>
 		</div>
 	);
 };
