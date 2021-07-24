@@ -1,5 +1,8 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const withTM = require(`next-transpile-modules`)([`three/examples/jsm`]);
+const withTM = require(`next-transpile-modules`)([
+	`three/examples/jsm`,
+	`rgb-hex`,
+]);
 
 module.exports = withTM({
 	root: true,

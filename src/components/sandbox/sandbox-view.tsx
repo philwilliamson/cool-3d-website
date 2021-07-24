@@ -30,6 +30,7 @@ function Box({ color, position }) {
 }
 
 const SandboxView = (): JSX.Element => {
+	// const { hex: boxColor } = useSandboxContext();
 	const { hex: boxColor } = useSandboxContext();
 
 	return (

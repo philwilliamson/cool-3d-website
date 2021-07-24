@@ -19,6 +19,7 @@
     "react": "17.0.2",
     "react-color": "^2.19.3",
     "react-dom": "17.0.2",
+    "rgb-hex": "^4.0.0",
     "styled-components": "^5.3.0",
     "three": "^0.130.1"
   },

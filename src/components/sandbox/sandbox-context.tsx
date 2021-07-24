@@ -47,7 +47,7 @@ interface SandboxInterface {
 const SandboxContextProvider = ({
 	children,
 	// contextInterface = { color: `#ffffff` },
-	contextInterface = `#ffffff`,
+	contextInterface = `#ff0000`,
 }: SandboxInterface): JSX.Element => {
 	// const [sandboxContext, dispatchSandboxContext] = useReducer(
 	// 	sandboxHandler,
