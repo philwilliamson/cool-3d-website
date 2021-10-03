@@ -36,11 +36,11 @@ const crystalConstructorReducer = (state: State, action: Action) => {
   }
 };
 
-// const initialState: State = {
-//   // eslint-disable-next-line unicorn/no-null
-//   color: `#ff0000`,
-//   atomsPosList: [],
-// };
+const initialState: State = {
+  // eslint-disable-next-line unicorn/no-null
+  color: `#ff0000`,
+  atomsPosList: [],
+};
 
 const CrystalConstructorContext = React.createContext<State>(initialState);
 const CrystalConstructorUpdateContext = React.createContext<
@@ -73,9 +73,9 @@ const CrystalConstructorContextProvider = ({
   const [crystalConstructorContext, dispatchCrystalConstructorContext] =
     useReducer(crystalConstructorReducer, crystalConstructorState);
 
-  useEffect(() => {
-    console.table(crystalConstructorContext);
-  }, [crystalConstructorContext]);
+  // useEffect(() => {
+  //   console.table(crystalConstructorContext);
+  // }, [crystalConstructorContext]);
 
   return (
     <CrystalConstructorContext.Provider value={crystalConstructorContext}>
