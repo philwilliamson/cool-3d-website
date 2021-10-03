@@ -2,14 +2,14 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
 type Data = {
-	name: string;
+  name: string;
 };
 
 const handler = (
-	request: NextApiRequest,
-	response: NextApiResponse<Data>
+  request: NextApiRequest,
+  response: NextApiResponse<Data>
 ): void => {
-	response.status(200).json({ name: `John Doe` });
+  response.status(200).json({ name: `John Doe` });
 };
 
 export default handler;
