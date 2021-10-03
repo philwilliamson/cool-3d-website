@@ -29,8 +29,7 @@ function Box({ color, position }) {
 	);
 }
 
-const SandboxView = (): JSX.Element => {
-	// const { hex: boxColor } = useSandboxContext();
+const CrystalConstructorView = (): JSX.Element => {
 	const {
 		color: { hex: boxColor },
 	} = useCrystalConstructorContext();
@@ -47,4 +46,4 @@ const SandboxView = (): JSX.Element => {
 	);
 };
 
-export default SandboxView;
+export default CrystalConstructorView;
