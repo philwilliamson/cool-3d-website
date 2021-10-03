@@ -21,7 +21,7 @@ const CrystalConstructorControl = (): JSX.Element => {
 				tw`bg-gray-800`,
 			]}
 		>
-			<p tw="text-white">Pick a Color</p>
+			{/* <p tw="text-white">Pick a Color</p>
 			<SketchPicker
 				disableAlpha
 				color={crystalConstructorContext.color}
@@ -33,7 +33,7 @@ const CrystalConstructorControl = (): JSX.Element => {
 					});
 					console.log(crystalConstructorContext);
 				}}
-			/>
+			/> */}
 		</div>
 	);
 };
