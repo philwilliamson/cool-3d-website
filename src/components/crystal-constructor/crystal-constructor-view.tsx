@@ -1,12 +1,23 @@
 import tw from "twin.macro";
-import React, { useRef, useState, useLayoutEffect } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Mesh, Line, Vector3 } from "three";
+import React, { useRef, useState, useMemo } from "react";
+import { Canvas, useFrame, ReactThreeFiber, extend } from "@react-three/fiber";
+import THREE, { Mesh, Line, Vector3 } from "three";
 import { OrbitControls } from "@react-three/drei";
+import { BoxGeometry } from "three";
 
 import { useCrystalConstructorContext } from "./crystal-constructor-context";
 
-function Box({ color, position }) {
+function LineBox() {
+	const geom = new BoxGeometry(1, 1, 1);
+	return (
+		<lineSegments>
+			<edgesGeometry attach="geometry" args={[geom]} />
+			<lineBasicMaterial color="white" attach="material" />
+		</lineSegments>
+	);
+}
+
+function Box({ position }) {
 	const mesh = useRef<Mesh>();
 	// const [hovered, setHover] = useState(false);
 	return (
@@ -20,21 +31,6 @@ function Box({ color, position }) {
 	);
 }
 
-function LineBox({ start, end }) {
-	const ref = useRef<Line>();
-	useLayoutEffect(() => {
-		ref.current.geometry.setFromPoints(
-			[start, end].map((point) => new Vector3(...point))
-		);
-	}, [start, end]);
-	return (
-		<line ref={ref}>
-			<bufferGeometry />
-			<lineBasicMaterial color="hotpink" />
-		</line>
-	);
-}
-
 const CrystalConstructorView = (): JSX.Element => {
 	const { color: boxColor } = useCrystalConstructorContext();
 
@@ -44,9 +40,7 @@ const CrystalConstructorView = (): JSX.Element => {
 				<OrbitControls />
 				<pointLight position={[10, 10, 10]} />
 				<ambientLight intensity={0.1} />
-				<LineBox start={[1, 1, 1]} end={[-1, 1, 1]} />
-				<LineBox start={[1, 1, 1]} end={[1, -1, 1]} />
-				<LineBox start={[1, 1, 1]} end={[1, 1, -1]} />
+				<LineBox />
 			</Canvas>
 		</div>
 	);
