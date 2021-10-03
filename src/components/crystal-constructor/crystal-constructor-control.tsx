@@ -1,38 +1,49 @@
 import tw from "twin.macro";
-import { useState } from "react";
-import { SketchPicker } from "react-color";
-import rgbHex from "rgb-hex";
 
 import {
-	useSandboxContext,
-	useSandboxUpdateContext,
+  ActionType,
+  useCrystalConstructorContext,
+  useCrystalConstructorUpdateContext,
 } from "./crystal-constructor-context";
 
-const SandboxControl = (): JSX.Element => {
-	const sandboxContext = useSandboxContext();
-	const setSandboxContext = useSandboxUpdateContext();
-	// const [color, setColor] = useState(`#fff`);
+const CrystalConstructorControl = (): JSX.Element => {
+  const crystalConstructorContext = useCrystalConstructorContext();
+  const dispatchCrystalConstructorContext =
+    useCrystalConstructorUpdateContext();
 
-	return (
-		<div
-			css={[
-				tw`flex flex-col justify-center items-center `,
-				tw`col-start-1 col-end-2 h-screen`,
-				tw`bg-gray-800`,
-			]}
-		>
-			<p tw="text-white">Pick a Color</p>
+  return (
+    <div
+      css={[
+        tw`flex flex-col justify-center items-center `,
+        tw`col-start-1 col-end-2 h-screen`,
+        tw`bg-gray-800`,
+      ]}
+    >
+      <button
+        tw="bg-gray-400 text-white"
+        onClick={() => {
+          dispatchCrystalConstructorContext({
+            type: ActionType.ADD_ATOM,
+          });
+        }}
+      >
+        Add Atom
+      </button>
+      {/* <p tw="text-white">Pick a Color</p>
 			<SketchPicker
 				disableAlpha
-				color={sandboxContext}
+				color={crystalConstructorContext.color}
 				onChange={(color, event) => {
 					event.preventDefault();
-					setSandboxContext(color);
-					console.log(sandboxContext);
+					dispatchCrystalConstructorContext({
+						type: ActionType.SET_COLOR,
+						payload: color.hex,
+					});
+					console.log(crystalConstructorContext);
 				}}
-			/>
-		</div>
-	);
+			/> */}
+    </div>
+  );
 };
 
-export default SandboxControl;
+export default CrystalConstructorControl;

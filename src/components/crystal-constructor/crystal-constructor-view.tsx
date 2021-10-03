@@ -1,48 +1,49 @@
 import tw from "twin.macro";
-import { Canvas, useFrame } from "@react-three/fiber";
-import React, { useRef, useState } from "react";
-import { Mesh } from "three";
+import React, { useRef, useState, useMemo } from "react";
+import { Canvas, useFrame, ReactThreeFiber, extend } from "@react-three/fiber";
+import THREE, { Mesh, LineSegments, Vector3 } from "three";
 import { OrbitControls } from "@react-three/drei";
-import { Stars } from "@react-three/drei";
+import { BoxGeometry } from "three";
 
-import { useSandboxContext } from "./crystal-constructor-context";
+import { useCrystalConstructorContext } from "./crystal-constructor-context";
 
-function Box({ color, position }) {
-	const mesh = useRef<Mesh>();
-	// const [hovered, setHover] = useState(false);
-	const [active, setActive] = useState(false);
-	useFrame((/*state, delta*/) => (mesh.current.rotation.x += 0.01));
-	return (
-		<mesh
-			position={position}
-			ref={mesh}
-			scale={active ? 1.5 : 1}
-			onClick={() => setActive(!active)}
-			// onPointerOver={() => setHover(true)}
-			// onPointerOut={() => setHover(false)}
-		>
-			<boxGeometry args={[1, 1, 1]} />
-			{/* <meshStandardMaterial color={hovered ? `hotpink` : `orange`} /> */}
-			{/* <meshStandardMaterial color={hovered ? `hotpink` : `orange`} /> */}
-			<meshStandardMaterial color={color} />
-		</mesh>
-	);
+function LineBox() {
+  const geom = new BoxGeometry(1, 1, 1);
+  const lineSegments = useRef<LineSegments>();
+  return (
+    <lineSegments ref={lineSegments}>
+      <edgesGeometry attach="geometry" args={[geom]} />
+      <lineBasicMaterial color="white" attach="material" />
+    </lineSegments>
+  );
 }
 
-const SandboxView = (): JSX.Element => {
-	// const { hex: boxColor } = useSandboxContext();
-	const { hex: boxColor } = useSandboxContext();
+function Atom({ position }) {
+  const mesh = useRef<Mesh>();
+  return (
+    <mesh position={position} ref={mesh} scale={1}>
+      <sphereGeometry args={[0.1, 32, 16]} />
+      <meshStandardMaterial color={`red`} />
+    </mesh>
+  );
+}
 
-	return (
-		<div css={[tw`h-full bg-black col-start-2 col-end-7`]}>
-			<Canvas>
-				<Stars />
-				<OrbitControls />
-				<pointLight position={[10, 10, 10]} />
-				<Box color={boxColor} position={[0, 0, 0]} />
-			</Canvas>
-		</div>
-	);
+const CrystalConstructorView = (): JSX.Element => {
+  const { color: boxColor, atomsPosList } = useCrystalConstructorContext();
+
+  return (
+    <div css={[tw`h-full bg-black col-start-2 col-end-7`]}>
+      <Canvas>
+        <OrbitControls />
+        <pointLight position={[10, 10, 10]} />
+        <ambientLight intensity={0.1} />
+        {atomsPosList.map((atomPos, i) => {
+          return <Atom key={i} position={atomPos} />;
+        })}
+        <LineBox />
+      </Canvas>
+    </div>
+  );
 };
 
-export default SandboxView;
+export default CrystalConstructorView;

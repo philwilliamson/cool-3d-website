@@ -10,10 +10,10 @@ const CustomStyles = createGlobalStyle`
 `;
 
 const GlobalStyles = (): JSX.Element => (
-	<>
-		<BaseStyles />
-		<CustomStyles />
-	</>
+  <>
+    <BaseStyles />
+    <CustomStyles />
+  </>
 );
 
 export default GlobalStyles;

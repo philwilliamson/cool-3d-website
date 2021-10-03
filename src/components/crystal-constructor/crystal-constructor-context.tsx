@@ -1,57 +1,91 @@
 // here we utilize useContext with useState to allow a
-import React, { useContext, useReducer, useState } from "react";
+import React, { useContext, useReducer, useEffect } from "react";
+import { ColorResult } from "react-color";
 
 // TYPES
 export enum ActionType {
-	SET_COLOR = `SET_COLOR`,
+  SET_COLOR = `SET_COLOR`,
+  ADD_ATOM = `ADD_ATOM`,
 }
 
 interface Action {
-	type: ActionType;
-	payload?: any;
+  type: ActionType;
+  payload?: string;
 }
 
 interface State {
-	color: any;
+  color: string;
+  atomsPosList: number[][];
 }
 
-const SandboxContext = React.createContext(undefined);
-const SandboxUpdateContext = React.createContext(undefined);
+// Reducer function
+const crystalConstructorReducer = (state: State, action: Action) => {
+  switch (action.type) {
+    case ActionType.SET_COLOR:
+      return { ...state, color: action.payload };
+    case ActionType.ADD_ATOM:
+      return {
+        ...state,
+        atomsPosList: [
+          ...state.atomsPosList,
+          [Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5],
+        ],
+      };
+    default:
+      return state;
+  }
+};
+
+const initialState: State = {
+  // eslint-disable-next-line unicorn/no-null
+  color: `#ff0000`,
+  atomsPosList: [],
+};
+
+const CrystalConstructorContext = React.createContext<State>(initialState);
+const CrystalConstructorUpdateContext = React.createContext<
+  React.Dispatch<Action>
+>(
+  // eslint-disable-next-line unicorn/no-null
+  () => null
+);
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const useSandboxContext = (): any => {
-	return useContext(SandboxContext);
+export const useCrystalConstructorContext = (): State => {
+  return useContext(CrystalConstructorContext);
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const useSandboxUpdateContext = (): any => {
-	return useContext(SandboxUpdateContext);
-};
+export const useCrystalConstructorUpdateContext =
+  (): React.Dispatch<Action> => {
+    return useContext(CrystalConstructorUpdateContext);
+  };
 
-type ContextInterface = string;
-
-interface SandboxInterface {
-	children?: React.ReactNode;
-	contextInterface?: ContextInterface;
+interface CrystalConstructorInterface {
+  children: React.ReactNode;
+  crystalConstructorState?: State;
 }
 
-const SandboxContextProvider = ({
-	children,
-	// contextInterface = { color: `#ffffff` },
-	contextInterface = `#ff0000`,
-}: SandboxInterface): JSX.Element => {
-	// const [sandboxContext, dispatchSandboxContext] = useReducer(
-	// 	sandboxHandler,
-	// 	contextInterface
-	// );
-	const [sandboxContext, setSandboxContext] = useState(contextInterface);
-	return (
-		<SandboxContext.Provider value={sandboxContext}>
-			<SandboxUpdateContext.Provider value={setSandboxContext}>
-				{children}
-			</SandboxUpdateContext.Provider>
-		</SandboxContext.Provider>
-	);
+const CrystalConstructorContextProvider = ({
+  children,
+  crystalConstructorState = initialState,
+}: CrystalConstructorInterface): JSX.Element => {
+  const [crystalConstructorContext, dispatchCrystalConstructorContext] =
+    useReducer(crystalConstructorReducer, crystalConstructorState);
+
+  // useEffect(() => {
+  //   console.table(crystalConstructorContext);
+  // }, [crystalConstructorContext]);
+
+  return (
+    <CrystalConstructorContext.Provider value={crystalConstructorContext}>
+      <CrystalConstructorUpdateContext.Provider
+        value={dispatchCrystalConstructorContext}
+      >
+        {children}
+      </CrystalConstructorUpdateContext.Provider>
+    </CrystalConstructorContext.Provider>
+  );
 };
 
-export default SandboxContextProvider;
+export default CrystalConstructorContextProvider;
