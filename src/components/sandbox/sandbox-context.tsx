@@ -6,12 +6,12 @@ const SandboxUpdateContext = React.createContext(undefined);
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const useSandboxContext = (): any => {
-	return useContext(SandboxContext);
+  return useContext(SandboxContext);
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const useSandboxUpdateContext = (): any => {
-	return useContext(SandboxUpdateContext);
+  return useContext(SandboxUpdateContext);
 };
 
 // interface ContextInterface {
@@ -21,8 +21,8 @@ export const useSandboxUpdateContext = (): any => {
 type ContextInterface = string;
 
 interface SandboxInterface {
-	children?: React.ReactNode;
-	contextInterface?: ContextInterface;
+  children?: React.ReactNode;
+  contextInterface?: ContextInterface;
 }
 
 // const sandboxHandler = (sandboxContext, action): ContextInterface => {
@@ -45,23 +45,23 @@ interface SandboxInterface {
 // };
 
 const SandboxContextProvider = ({
-	children,
-	// contextInterface = { color: `#ffffff` },
-	contextInterface = `#ff0000`,
+  children,
+  // contextInterface = { color: `#ffffff` },
+  contextInterface = `#ff0000`,
 }: SandboxInterface): JSX.Element => {
-	// const [sandboxContext, dispatchSandboxContext] = useReducer(
-	// 	sandboxHandler,
-	// 	contextInterface
-	// );
-	const [sandboxContext, setSandboxContext] = useState(contextInterface);
-	return (
-		<SandboxContext.Provider value={sandboxContext}>
-			{/* <SandboxUpdateContext.Provider value={dispatchSandboxContext}> */}
-			<SandboxUpdateContext.Provider value={setSandboxContext}>
-				{children}
-			</SandboxUpdateContext.Provider>
-		</SandboxContext.Provider>
-	);
+  // const [sandboxContext, dispatchSandboxContext] = useReducer(
+  // 	sandboxHandler,
+  // 	contextInterface
+  // );
+  const [sandboxContext, setSandboxContext] = useState(contextInterface);
+  return (
+    <SandboxContext.Provider value={sandboxContext}>
+      {/* <SandboxUpdateContext.Provider value={dispatchSandboxContext}> */}
+      <SandboxUpdateContext.Provider value={setSandboxContext}>
+        {children}
+      </SandboxUpdateContext.Provider>
+    </SandboxContext.Provider>
+  );
 };
 
 export default SandboxContextProvider;

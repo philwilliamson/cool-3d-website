@@ -4,14 +4,14 @@ import SandboxView from "./sandbox-view";
 import SandboxControl from "./sandbox-control";
 
 const Sandbox = (): JSX.Element => {
-	return (
-		<div css={[tw`grid grid-cols-6`]}>
-			<SandboxContextProvider>
-				<SandboxControl />
-				<SandboxView />
-			</SandboxContextProvider>
-		</div>
-	);
+  return (
+    <div css={[tw`grid grid-cols-6`]}>
+      <SandboxContextProvider>
+        <SandboxControl />
+        <SandboxView />
+      </SandboxContextProvider>
+    </div>
+  );
 };
 
 export default Sandbox;

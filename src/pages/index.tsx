@@ -1,13 +1,13 @@
 import LandingPage from "../components/landing-page";
 
 const Index = (): JSX.Element => {
-	return (
-		<>
-			{/* <IndexStyle /> */}
+  return (
+    <>
+      {/* <IndexStyle /> */}
 
-			<LandingPage />
-		</>
-	);
+      <LandingPage />
+    </>
+  );
 };
 
 export default Index;
