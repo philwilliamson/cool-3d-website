@@ -30,9 +30,7 @@ function Box({ color, position }) {
 }
 
 const CrystalConstructorView = (): JSX.Element => {
-	const {
-		color: { hex: boxColor },
-	} = useCrystalConstructorContext();
+	const { color: boxColor } = useCrystalConstructorContext();
 
 	return (
 		<div css={[tw`h-full bg-black col-start-2 col-end-7`]}>

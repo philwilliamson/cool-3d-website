@@ -24,12 +24,12 @@ const CrystalConstructorControl = (): JSX.Element => {
 			<p tw="text-white">Pick a Color</p>
 			<SketchPicker
 				disableAlpha
-				color={crystalConstructorContext.color as unknown as ColorResult}
+				color={crystalConstructorContext.color}
 				onChange={(color, event) => {
 					event.preventDefault();
 					dispatchCrystalConstructorContext({
 						type: ActionType.SET_COLOR,
-						payload: color,
+						payload: color.hex,
 					});
 					console.log(crystalConstructorContext);
 				}}

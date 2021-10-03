@@ -9,11 +9,11 @@ export enum ActionType {
 
 interface Action {
 	type: ActionType;
-	payload?: ColorResult;
+	payload?: string;
 }
 
 interface State {
-	color: ColorResult;
+	color: string;
 }
 
 // Reducer function
@@ -28,7 +28,7 @@ const crystalConstructorReducer = (state: State, action: Action) => {
 
 const initialState: State = {
 	// eslint-disable-next-line unicorn/no-null
-	color: `#ff0000` as unknown as ColorResult,
+	color: `#ff0000`,
 };
 
 const CrystalConstructorContext = React.createContext<State>(initialState);
