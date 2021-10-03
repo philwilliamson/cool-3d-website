@@ -8,6 +8,8 @@ import ElaborateScene from "../../components/elaborate-scene";
 
 import SandboxView from "../../components/sandbox/sandbox-view";
 import SandboxContextProvider from "../../components/sandbox/sandbox-context";
+import CrystalConstructorView from "../../components/crystal-constructor/crystal-constructor-view";
+import CrystalConstructorContextProvider from "../../components/crystal-constructor/crystal-constructor-context";
 
 const Projects = (): JSX.Element => {
 	return (
@@ -28,6 +30,15 @@ const Projects = (): JSX.Element => {
 				<SandboxContextProvider>
 					<SandboxView />
 				</SandboxContextProvider>
+			</Card>
+			<Card
+				title="Crystal Constructor"
+				bgColor={`black`}
+				link="/projects/crystal-constructor-page"
+			>
+				<CrystalConstructorContextProvider>
+					<CrystalConstructorView />
+				</CrystalConstructorContextProvider>
 			</Card>
 		</div>
 	);
