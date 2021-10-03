@@ -1,17 +1,17 @@
 import tw from "twin.macro";
 import { useState } from "react";
-import { SketchPicker } from "react-color";
-import rgbHex from "rgb-hex";
+import { SketchPicker, ColorResult } from "react-color";
+import { ActionType } from "./crystal-constructor-context";
 
 import {
-	useSandboxContext,
-	useSandboxUpdateContext,
+	useCrystalConstructorContext,
+	useCrystalConstructorUpdateContext,
 } from "./crystal-constructor-context";
 
-const SandboxControl = (): JSX.Element => {
-	const sandboxContext = useSandboxContext();
-	const setSandboxContext = useSandboxUpdateContext();
-	// const [color, setColor] = useState(`#fff`);
+const CrystalConstructorControl = (): JSX.Element => {
+	const crystalConstructorContext = useCrystalConstructorContext();
+	const dispatchCrystalConstructorContext =
+		useCrystalConstructorUpdateContext();
 
 	return (
 		<div
@@ -24,15 +24,18 @@ const SandboxControl = (): JSX.Element => {
 			<p tw="text-white">Pick a Color</p>
 			<SketchPicker
 				disableAlpha
-				color={sandboxContext}
+				color={crystalConstructorContext.color as unknown as ColorResult}
 				onChange={(color, event) => {
 					event.preventDefault();
-					setSandboxContext(color);
-					console.log(sandboxContext);
+					dispatchCrystalConstructorContext({
+						type: ActionType.SET_COLOR,
+						payload: color,
+					});
+					console.log(crystalConstructorContext);
 				}}
 			/>
 		</div>
 	);
 };
 
-export default SandboxControl;
+export default CrystalConstructorControl;

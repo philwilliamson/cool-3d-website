@@ -5,7 +5,7 @@ import { Mesh } from "three";
 import { OrbitControls } from "@react-three/drei";
 import { Stars } from "@react-three/drei";
 
-import { useSandboxContext } from "./crystal-constructor-context";
+import { useCrystalConstructorContext } from "./crystal-constructor-context";
 
 function Box({ color, position }) {
 	const mesh = useRef<Mesh>();
@@ -31,7 +31,9 @@ function Box({ color, position }) {
 
 const SandboxView = (): JSX.Element => {
 	// const { hex: boxColor } = useSandboxContext();
-	const { hex: boxColor } = useSandboxContext();
+	const {
+		color: { hex: boxColor },
+	} = useCrystalConstructorContext();
 
 	return (
 		<div css={[tw`h-full bg-black col-start-2 col-end-7`]}>
